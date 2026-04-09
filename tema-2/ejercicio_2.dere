@@ -1,0 +1,36 @@
+<DERExt>
+ <Entity name="EMPLEADO" width="60" x="0" y="0" isAssociative="0" subtype="0">
+  <Simple null="0" cant1="20" cant2="0" name="id" mult="0" type="integer" cant3="2" sk="0" parent="" pk="0" optionSQL="1"/>
+  <Simple null="0" cant1="20" cant2="0" name="nombre" mult="0" type="integer" cant3="2" sk="0" parent="" pk="0" optionSQL="1"/>
+  <Simple null="0" cant1="20" cant2="0" name="apellido" mult="0" type="integer" cant3="2" sk="0" parent="" pk="0" optionSQL="1"/>
+  <Compound null="0" name="direccion" mult="0" sk="0" amount="4" parent="" pk="0" optionSQL="1">
+   <Simple null="0" cant1="20" cant2="0" name="calle" mult="0" type="integer" cant3="2" sk="0" parent="direccion" pk="0" optionSQL="1"/>
+   <Simple null="0" cant1="20" cant2="0" name="puerta" mult="0" type="integer" cant3="2" sk="0" parent="direccion" pk="0" optionSQL="1"/>
+   <Simple null="0" cant1="20" cant2="0" name="piso" mult="0" type="integer" cant3="2" sk="0" parent="direccion" pk="0" optionSQL="1"/>
+   <Simple null="0" cant1="20" cant2="0" name="ciudad" mult="0" type="integer" cant3="2" sk="0" parent="direccion" pk="0" optionSQL="1"/>
+  </Compound>
+ </Entity>
+ <Entity name="DEPARTAMENTO" width="80" x="-345" y="1" isAssociative="0" subtype="0">
+  <Simple null="0" cant1="20" cant2="0" name="nombre" mult="0" type="integer" cant3="2" sk="0" parent="" pk="0" optionSQL="1"/>
+  <Simple null="0" cant1="20" cant2="0" name="jefe" mult="0" type="integer" cant3="2" sk="0" parent="" pk="0" optionSQL="1"/>
+ </Entity>
+ <Entity name="PRODUCTO" width="60" x="-336" y="198" isAssociative="0" subtype="0">
+  <Simple null="0" cant1="20" cant2="0" name="nro_fabricante" mult="0" type="integer" cant3="2" sk="0" parent="" pk="0" optionSQL="1"/>
+  <Simple null="0" cant1="20" cant2="0" name="nro_almacen" mult="0" type="integer" cant3="2" sk="0" parent="" pk="0" optionSQL="1"/>
+  <Simple null="0" cant1="20" cant2="0" name="nombre" mult="0" type="integer" cant3="2" sk="0" parent="" pk="0" optionSQL="1"/>
+  <Simple null="0" cant1="20" cant2="0" name="fabricante" mult="0" type="integer" cant3="2" sk="0" parent="" pk="0" optionSQL="1"/>
+  <Simple null="0" cant1="20" cant2="0" name="precio" mult="0" type="integer" cant3="2" sk="0" parent="" pk="0" optionSQL="1"/>
+ </Entity>
+ <Entity name="FABRICANTE" width="70" x="-39" y="195" isAssociative="0" subtype="0">
+  <Simple null="0" cant1="20" cant2="0" name="id" mult="0" type="integer" cant3="2" sk="0" parent="" pk="0" optionSQL="1"/>
+  <Simple null="0" cant1="20" cant2="0" name="nombre" mult="0" type="integer" cant3="2" sk="0" parent="" pk="0" optionSQL="1"/>
+  <Compound null="0" name="direccion" mult="0" sk="0" amount="2" parent="" pk="0" optionSQL="1">
+   <Simple null="0" cant1="20" cant2="0" name="calle" mult="0" type="integer" cant3="2" sk="0" parent="direccion" pk="0" optionSQL="1"/>
+   <Simple null="0" cant1="20" cant2="0" name="numero" mult="0" type="integer" cant3="2" sk="0" parent="direccion" pk="0" optionSQL="1"/>
+  </Compound>
+ </Entity>
+ <RBinary y="113" onDelete0="restrict" onUpdate1="restrict" min1="1" name0="DEPARTAMENTO" width="40" match0="simple" onDelete1="restrict" min0="1" max1="N" firstWeak="0" max0="1" match1="simple" onUpdate0="restrict" rolename="" x="-131" name1="EMPLEADO" name="trabaja" dep="0"/>
+ <RBinary y="127" onDelete0="restrict" onUpdate1="restrict" min1="1" name0="DEPARTAMENTO" width="40" match0="simple" onDelete1="restrict" min0="1" max1="N" firstWeak="0" max0="1" match1="simple" onUpdate0="restrict" rolename="" x="-305" name1="PRODUCTO" name="vende" dep="0"/>
+ <RBinary y="19" onDelete0="restrict" onUpdate1="restrict" min1="0" name0="EMPLEADO" width="40" match0="simple" onDelete1="restrict" min0="1" max1="1" firstWeak="0" max0="1" match1="simple" onUpdate0="restrict" rolename="" x="-132" name1="DEPARTAMENTO" name="lidera" dep="0"/>
+ <RBinary y="216.5" onDelete0="restrict" onUpdate1="restrict" min1="1" name0="FABRICANTE" width="40" match0="simple" onDelete1="restrict" min0="1" max1="N" firstWeak="0" max0="1" match1="simple" onUpdate0="restrict" rolename="" x="-155" name1="PRODUCTO" name="produce" dep="0"/>
+</DERExt>

@@ -1,0 +1,48 @@
+<DERExt>
+ <Entity strongEnt="LIBRO" x="-214" y="4" name="COPIA_LIBRO" width="75" weak="1">
+  <Simple optionSQL="1" sk="0" type="integer" null="0" parent="" pk="0" name="nro_ejemplar" cant3="2" cant2="0" mult="0" cant1="20"/>
+  <Simple optionSQL="1" sk="0" type="integer" null="0" parent="" pk="0" name="anio_edicion" cant3="2" cant2="0" mult="0" cant1="20"/>
+  <Simple optionSQL="1" sk="0" type="integer" null="0" parent="" pk="0" name="nro_edicion" cant3="2" cant2="0" mult="0" cant1="20"/>
+  <Simple optionSQL="1" sk="0" type="integer" null="0" parent="" pk="0" name="estado" cant3="2" cant2="0" mult="0" cant1="20"/>
+  <Simple optionSQL="1" sk="0" type="integer" null="0" parent="" pk="0" name="ubicacion" cant3="2" cant2="0" mult="0" cant1="20"/>
+ </Entity>
+ <Entity isAssociative="0" subtype="0" x="-550" y="275" name="CATEGORIA" width="65">
+  <Simple optionSQL="1" sk="0" type="integer" null="0" parent="" pk="0" name="id" cant3="2" cant2="0" mult="0" cant1="20"/>
+  <Simple optionSQL="1" sk="0" type="integer" null="0" parent="" pk="0" name="nombre" cant3="2" cant2="0" mult="0" cant1="20"/>
+ </Entity>
+ <Entity isAssociative="0" subtype="0" x="-207" y="227" name="EMPLEADO" width="60">
+  <Simple optionSQL="1" sk="0" type="integer" null="0" parent="" pk="0" name="dni" cant3="2" cant2="0" mult="0" cant1="20"/>
+  <Simple optionSQL="1" sk="0" type="integer" null="0" parent="" pk="0" name="nombre" cant3="2" cant2="0" mult="0" cant1="20"/>
+  <Simple optionSQL="1" sk="0" type="integer" null="0" parent="" pk="0" name="cargo" cant3="2" cant2="0" mult="0" cant1="20"/>
+  <Simple optionSQL="1" sk="0" type="integer" null="0" parent="" pk="0" name="horario" cant3="2" cant2="0" mult="0" cant1="20"/>
+ </Entity>
+ <Entity isAssociative="0" subtype="0" x="138" y="2" name="LECTOR" width="50">
+  <Simple optionSQL="1" sk="0" type="integer" null="0" parent="" pk="0" name="dni" cant3="2" cant2="0" mult="0" cant1="20"/>
+  <Simple optionSQL="1" sk="0" type="integer" null="0" parent="" pk="0" name="nombre" cant3="2" cant2="0" mult="0" cant1="20"/>
+  <Simple optionSQL="1" sk="0" type="integer" null="0" parent="" pk="0" name="telefono" cant3="2" cant2="0" mult="0" cant1="20"/>
+  <Compound optionSQL="1" sk="0" null="0" parent="" pk="0" name="direccion" amount="3" mult="0">
+   <Simple optionSQL="1" sk="0" type="integer" null="0" parent="direccion" pk="0" name="calle" cant3="2" cant2="0" mult="0" cant1="20"/>
+   <Simple optionSQL="1" sk="0" type="integer" null="0" parent="direccion" pk="0" name="numero" cant3="2" cant2="0" mult="0" cant1="20"/>
+   <Simple optionSQL="1" sk="0" type="integer" null="0" parent="direccion" pk="0" name="ciudad" cant3="2" cant2="0" mult="0" cant1="20"/>
+  </Compound>
+  <Simple optionSQL="1" sk="0" type="integer" null="0" parent="" pk="0" name="correo" cant3="2" cant2="0" mult="0" cant1="20"/>
+ </Entity>
+ <Entity isAssociative="0" subtype="0" x="-540" y="5" name="LIBRO" width="45">
+  <Simple optionSQL="1" sk="0" type="integer" null="0" parent="" pk="0" name="isbn" cant3="2" cant2="0" mult="0" cant1="20"/>
+  <Simple optionSQL="1" sk="0" type="integer" null="0" parent="" pk="0" name="titulo" cant3="2" cant2="0" mult="0" cant1="20"/>
+  <Simple optionSQL="1" sk="0" type="integer" null="0" parent="" pk="0" name="autor" cant3="2" cant2="0" mult="0" cant1="20"/>
+  <Simple optionSQL="1" sk="0" type="integer" null="0" parent="" pk="0" name="editorial" cant3="2" cant2="0" mult="0" cant1="20"/>
+  <Simple optionSQL="1" sk="0" type="integer" null="0" parent="" pk="0" name="anio_publicacion" cant3="2" cant2="0" mult="0" cant1="20"/>
+  <Simple optionSQL="1" sk="0" type="integer" null="0" parent="" pk="0" name="genero" cant3="2" cant2="0" mult="0" cant1="20"/>
+  <Simple optionSQL="1" sk="0" type="integer" null="0" parent="" pk="0" name="stock_total" cant3="2" cant2="0" mult="0" cant1="20"/>
+  <Simple optionSQL="1" sk="0" type="integer" null="0" parent="" pk="0" name="stock_disponible" cant3="2" cant2="0" mult="0" cant1="20"/>
+ </Entity>
+ <RBinary match1="simple" onUpdate0="restrict" x="-176" max1="N" width="40" name1="COPIA_LIBRO" match0="simple" name0="EMPLEADO" firstWeak="0" onDelete0="restrict" rolename="" onDelete1="restrict" name="presta" onUpdate1="restrict" min1="1" max0="1" min0="1" y="136" dep="0"/>
+ <RBinary match1="simple" onUpdate0="restrict" x="-340" max1="N" width="40" name1="COPIA_LIBRO" match0="simple" name0="LIBRO" firstWeak="0" onDelete0="restrict" rolename="" onDelete1="restrict" name="existe" onUpdate1="restrict" min1="1" max0="1" min0="1" y="26" dep="1"/>
+ <RBinary match1="simple" onUpdate0="restrict" x="9" max1="N" width="40" name1="COPIA_LIBRO" match0="simple" name0="LECTOR" firstWeak="0" onDelete0="restrict" rolename="" onDelete1="restrict" name="retira" onUpdate1="restrict" min1="1" max0="N" min0="1" y="23" dep="0">
+  <Simple optionSQL="1" sk="0" type="integer" null="0" parent="" pk="0" name="fecha_prestamo" cant3="2" cant2="0" mult="0" cant1="20"/>
+  <Simple optionSQL="1" sk="0" type="integer" null="0" parent="" pk="0" name="fecha_devolucion" cant3="2" cant2="0" mult="0" cant1="20"/>
+ </RBinary>
+ <RBinary match1="simple" onUpdate0="restrict" x="-518" max1="N" width="55" name1="CATEGORIA" match0="simple" name0="LIBRO" firstWeak="0" onDelete0="restrict" rolename="" onDelete1="restrict" name="pertenece" onUpdate1="restrict" min1="1" max0="N" min0="1" y="171" dep="0"/>
+ <RBinary match1="simple" onUpdate0="restrict" x="-174" max1="N" width="40" name1="LIBRO" match0="simple" name0="LECTOR" firstWeak="0" onDelete0="restrict" rolename="" onDelete1="restrict" name="reserva" onUpdate1="restrict" min1="1" max0="N" min0="1" y="-49" dep="0"/>
+</DERExt>
